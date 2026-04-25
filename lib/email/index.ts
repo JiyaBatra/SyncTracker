@@ -2,8 +2,7 @@ import { Resend } from "resend"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-const FROM_EMAIL = "CycleSync <noreply@cyclesync.app>"
-
+ const FROM_EMAIL = "onboarding@resend.dev"
 export async function sendOTPEmail(to: string, otp: string, name?: string) {
   const greeting = name ? `Hi ${name}` : "Hi there"
   

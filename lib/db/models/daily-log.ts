@@ -1,31 +1,23 @@
-import mongoose, { Schema, Document, Types } from "mongoose"
+import mongoose, { Document, Schema, Types } from "mongoose"
 
 export const SYMPTOMS = [
-  "cramps",
-  "headache",
-  "bloating",
-  "breast_tenderness",
-  "fatigue",
   "acne",
-  "backache",
-  "nausea",
-  "dizziness",
-  "insomnia",
-  "hot_flashes",
+  "bloating",
   "cravings",
+  "cramps",
+  "fatigue",
+  "headache",
+  "hot_flashes",
+  "nausea",
 ] as const
 
 export const MOODS = [
-  "happy",
-  "calm",
-  "neutral",
-  "sad",
   "anxious",
-  "irritable",
-  "energetic",
-  "tired",
-  "stressed",
+  "calm",
   "emotional",
+  "happy",
+  "irritable",
+  "low",
 ] as const
 
 export type Symptom = (typeof SYMPTOMS)[number]
@@ -33,16 +25,15 @@ export type Mood = (typeof MOODS)[number]
 
 export interface IDailyLog extends Document {
   userId: Types.ObjectId
-  cycleId?: Types.ObjectId
-  date: string // Encrypted date string
-  dateHash: string // For searching
-  isPeriodDay: boolean
+  date: string
+  dateHash: string
+  isPeriodDay?: boolean
   flow?: "light" | "medium" | "heavy" | "spotting"
-  symptoms: string // Encrypted JSON array
-  mood: string // Encrypted JSON array
-  sleepQuality?: number // 1-5
-  energyLevel?: number // 1-5
-  notes?: string // Encrypted
+  symptoms?: string
+  mood?: string
+  sleepQuality?: number
+  energyLevel?: number
+  notes?: string
   createdAt: Date
   updatedAt: Date
 }
@@ -55,10 +46,6 @@ const dailyLogSchema = new Schema<IDailyLog>(
       required: true,
       index: true,
     },
-    cycleId: {
-      type: Schema.Types.ObjectId,
-      ref: "Cycle",
-    },
     date: {
       type: String,
       required: true,
@@ -66,24 +53,14 @@ const dailyLogSchema = new Schema<IDailyLog>(
     dateHash: {
       type: String,
       required: true,
-      index: true,
     },
-    isPeriodDay: {
-      type: Boolean,
-      default: false,
-    },
+    isPeriodDay: Boolean,
     flow: {
       type: String,
       enum: ["light", "medium", "heavy", "spotting"],
     },
-    symptoms: {
-      type: String, // Encrypted JSON
-      default: "[]",
-    },
-    mood: {
-      type: String, // Encrypted JSON
-      default: "[]",
-    },
+    symptoms: String,
+    mood: String,
     sleepQuality: {
       type: Number,
       min: 1,
@@ -101,7 +78,8 @@ const dailyLogSchema = new Schema<IDailyLog>(
   }
 )
 
-// Compound index for efficient user+date lookups
 dailyLogSchema.index({ userId: 1, dateHash: 1 }, { unique: true })
+dailyLogSchema.index({ userId: 1, createdAt: -1 })
 
-export const DailyLog = mongoose.models.DailyLog || mongoose.model<IDailyLog>("DailyLog", dailyLogSchema)
+export const DailyLog =
+  mongoose.models.DailyLog || mongoose.model<IDailyLog>("DailyLog", dailyLogSchema)

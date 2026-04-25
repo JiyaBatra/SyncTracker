@@ -1,0 +1,6 @@
+{
+  "name": "CycleSync",
+  "short_name": "Cycle",
+  "start_url": "/",
+  "display": "standalone"
+}
