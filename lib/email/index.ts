@@ -10,11 +10,11 @@ export async function sendOTPEmail(to: string, otp: string, name?: string) {
     await resend.emails.send({
       from: FROM_EMAIL,
       to,
-      subject: "Your CycleSync Verification Code",
+      subject: "Your SyncTracker Verification Code",
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
           <div style="text-align: center; margin-bottom: 40px;">
-            <h1 style="color: #E11D48; font-size: 28px; margin: 0;">CycleSync</h1>
+            <h1 style="color: #E11D48; font-size: 28px; margin: 0;">SyncTracker</h1>
             <p style="color: #6B7280; margin-top: 8px;">Your personal period tracker</p>
           </div>
           
@@ -49,17 +49,17 @@ export async function sendWelcomeEmail(to: string, name?: string) {
     await resend.emails.send({
       from: FROM_EMAIL,
       to,
-      subject: "Welcome to CycleSync!",
+      subject: "Welcome to SyncTracker!",
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
           <div style="text-align: center; margin-bottom: 40px;">
-            <h1 style="color: #E11D48; font-size: 28px; margin: 0;">CycleSync</h1>
+            <h1 style="color: #E11D48; font-size: 28px; margin: 0;">SyncTracker</h1>
           </div>
           
           <div style="background: linear-gradient(135deg, #FFF1F2 0%, #FCE7F3 100%); border-radius: 16px; padding: 32px;">
             <h2 style="color: #374151; font-size: 24px; margin: 0 0 16px 0; text-align: center;">${greeting}</h2>
             <p style="color: #374151; font-size: 16px; line-height: 1.6; margin: 0 0 16px 0;">
-              Your account has been created successfully. CycleSync helps you track your menstrual cycle with AI-powered insights.
+              Your account has been created successfully. SyncTracker helps you track your menstrual cycle with AI-powered insights.
             </p>
             <ul style="color: #374151; font-size: 14px; line-height: 1.8; padding-left: 20px;">
               <li>Track your periods and symptoms</li>
@@ -86,11 +86,11 @@ export async function sendPasswordResetEmail(to: string, otp: string) {
     await resend.emails.send({
       from: FROM_EMAIL,
       to,
-      subject: "Reset Your CycleSync Password",
+      subject: "Reset Your SyncTracker Password",
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
           <div style="text-align: center; margin-bottom: 40px;">
-            <h1 style="color: #E11D48; font-size: 28px; margin: 0;">CycleSync</h1>
+            <h1 style="color: #E11D48; font-size: 28px; margin: 0;">SyncTracker</h1>
           </div>
           
           <div style="background: linear-gradient(135deg, #FFF1F2 0%, #FCE7F3 100%); border-radius: 16px; padding: 32px; text-align: center;">

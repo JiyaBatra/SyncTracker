@@ -1,6 +1,13 @@
 {
-  "name": "CycleSync",
-  "short_name": "Cycle",
+  "name": "SyncTracker",
+  "short_name": "SyncTracker",
   "start_url": "/",
-  "display": "standalone"
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }

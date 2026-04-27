@@ -19,7 +19,7 @@ import {
   Moon,
   Zap,
 } from "lucide-react"
-import { SYMPTOMS, MOODS } from "@/lib/db/models/daily-log"
+import { SYMPTOMS, MOODS } from "@/lib/db/constants"
 import { formatDateLong } from "@/lib/cycle/utils"
 
 const flowLevels = [

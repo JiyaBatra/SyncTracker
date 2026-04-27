@@ -1,27 +1,5 @@
 import mongoose, { Document, Schema, Types } from "mongoose"
-
-export const SYMPTOMS = [
-  "acne",
-  "bloating",
-  "cravings",
-  "cramps",
-  "fatigue",
-  "headache",
-  "hot_flashes",
-  "nausea",
-] as const
-
-export const MOODS = [
-  "anxious",
-  "calm",
-  "emotional",
-  "happy",
-  "irritable",
-  "low",
-] as const
-
-export type Symptom = (typeof SYMPTOMS)[number]
-export type Mood = (typeof MOODS)[number]
+import { SYMPTOMS, MOODS, Symptom, Mood } from "../constants"
 
 export interface IDailyLog extends Document {
   userId: Types.ObjectId

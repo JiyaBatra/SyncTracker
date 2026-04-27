@@ -3,6 +3,7 @@
 import { useAuth } from "@/lib/auth/context"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
+import Image from "next/image"
 
 export default function AuthLayout({
   children,
@@ -33,7 +34,7 @@ export default function AuthLayout({
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-background px-4 py-8">
       <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold text-primary">CycleSync</h1>
+        <Image src="/icon.png" alt="SyncTracker" width={64} height={64} className="mx-auto mb-4" />
         <p className="mt-2 text-muted-foreground">Your personal period tracker</p>
       </div>
       {children}

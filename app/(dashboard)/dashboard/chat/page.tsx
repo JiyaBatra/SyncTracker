@@ -14,7 +14,7 @@ export default function ChatPage() {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: "assistant",
-      text: "Hi, I'm your CycleSync assistant. Ask me about your next period, ovulation window, symptom trends, sleep and energy patterns, or PCOS risk.",
+      text: "Hi, I'm your SyncTracker assistant. Ask me about your next period, ovulation window, symptom trends, sleep and energy patterns, or PCOS risk.",
     },
   ])
   const [input, setInput] = useState("")

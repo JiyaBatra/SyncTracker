@@ -8,12 +8,16 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'CycleSync - AI Period Tracker',
+  title: 'SyncTracker - AI Period Tracker',
   description: 'Your secure, AI-powered period tracking companion. Track cycles, predict periods, and get personalized health insights.',
   generator: 'v0.app',
   manifest: '/manifest.json',
   icons: {
     icon: [
+      {
+        url: '/icon.png',
+        type: 'image/png',
+      },
       {
         url: '/icon-light-32x32.png',
         media: '(prefers-color-scheme: light)',
@@ -32,7 +36,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'CycleSync',
+    title: 'SyncTracker',
   },
 }
 
